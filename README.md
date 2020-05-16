@@ -60,3 +60,13 @@ Create a Django project
 ```bash
 django-admin startproject example_django
 ```
+
+## Step 6
+
+Run your Django project
+
+```bash
+python manage.py runserver
+```
+
+Then you can start the server at http://127.0.0.1:8000/
