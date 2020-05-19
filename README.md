@@ -70,3 +70,68 @@ python manage.py runserver
 ```
 
 Then you can start the server at http://127.0.0.1:8000/
+
+# Build a application called 'poll'
+
+## build application within the same directory as manage.py
+```bash
+python manage.py startapp polls
+```
+
+## run migrations for apps in INSTALLED_APPS of settings.py
+
+```bash
+python manage.py migrate
+```
+
+## Activate application into project
+After add poll application into the project(settings.py->INSTALLED_APPS), you need let Django know
+
+```bash
+python manage.py makemigrations polls
+```
+
+## Create those model tables in your database
+The migrate command takes all the migrations that haven’t been applied and runs them against your database - essentially, synchronizing the changes you made to your models with the schema in the database.
+```bash
+python manage.py migrate
+```
+
+## check what sql that migration would run
+
+```bash
+python manage.py sqlmigrate polls 0001
+```
+
+## three-step guide to making model changes
+
+1. Change your models (in models.py).
+2. Run python manage.py makemigrations to create migrations for those changes
+3. Run python manage.py migrate to apply those changes to the database.
+
+## Invoke python shell and you can try api via python to create/save/manipulate data object for models
+
+after enter python shell, you can use Django's predefined APIs to interact with database migrated by model
+```bash
+python manage.py shell
+```
+
+## Creating an admin user
+
+```bash
+python manage.py createsuperuser
+```
+Enter your desired username and press enter
+```bash
+Username: admin
+```
+You will then be prompted for your desired email address
+```bash
+Email address: admin@example.com
+```
+The final step is to enter your password. You will be asked to enter your password twice, the second time as a confirmation of the first
+```bash
+Password: **********
+Password (again): *********
+Superuser created successfully.
+```
